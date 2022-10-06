@@ -1,16 +1,23 @@
 package br.senai.sp.jandira.ui;
 
+import br.senai.sp.jandira.dao.PlanoDeSaudeDAO;
+import javax.swing.JTable;
+
 public class HomeFrame extends javax.swing.JFrame {
 
     public HomeFrame() {
         System.out.println("Criando a tela home...");
         initComponents();
+        PlanoDeSaudeDAO.criarPlanosDeSaudeTeste();
+        criarTabelaPlanosDeSaude();
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        scrollTablePlanosDeSaude = new javax.swing.JScrollPane();
+        tablePlanosDeSaude = new javax.swing.JTable();
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
@@ -22,22 +29,36 @@ public class HomeFrame extends javax.swing.JFrame {
         buttonMedicos = new javax.swing.JButton();
         panelPlanosDeSaude = new javax.swing.JPanel();
         jLabel3 = new javax.swing.JLabel();
-        scrollTablePlanosDeSaude = new javax.swing.JScrollPane();
-        tablePlanosDeSaude = new javax.swing.JTable();
         buttonExcluirPlanoDeSaude = new javax.swing.JButton();
         buttonAlterarPlanoDeSaude = new javax.swing.JButton();
         buttonAdicionarPlanoDeSaude = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablePlanoDeSaude = new javax.swing.JTable();
+
+        tablePlanosDeSaude.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        scrollTablePlanosDeSaude.setViewportView(tablePlanosDeSaude);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(204, 102, 255));
         setResizable(false);
         getContentPane().setLayout(null);
 
-        jPanel1.setBackground(new java.awt.Color(153, 0, 153));
+        jPanel1.setBackground(new java.awt.Color(0, 0, 0));
         jPanel1.setLayout(null);
 
+        jLabel1.setBackground(new java.awt.Color(255, 255, 255));
         jLabel1.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setForeground(new java.awt.Color(0, 255, 255));
         jLabel1.setText("Sistema para Agendamento de Consultas");
         jPanel1.add(jLabel1);
         jLabel1.setBounds(90, 20, 740, 40);
@@ -61,7 +82,7 @@ public class HomeFrame extends javax.swing.JFrame {
         getContentPane().add(buttonAgenda);
         buttonAgenda.setBounds(10, 100, 80, 60);
 
-        buttonPlanosDeSaude.setBackground(new java.awt.Color(204, 102, 255));
+        buttonPlanosDeSaude.setBackground(new java.awt.Color(0, 0, 0));
         buttonPlanosDeSaude.setForeground(new java.awt.Color(51, 0, 255));
         buttonPlanosDeSaude.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/health-card.png"))); // NOI18N
         buttonPlanosDeSaude.setToolTipText("Planos de saúde");
@@ -89,27 +110,11 @@ public class HomeFrame extends javax.swing.JFrame {
         panelPlanosDeSaude.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         panelPlanosDeSaude.setLayout(null);
 
+        jLabel3.setBackground(new java.awt.Color(0, 0, 0));
         jLabel3.setFont(new java.awt.Font("sansserif", 1, 18)); // NOI18N
-        jLabel3.setForeground(new java.awt.Color(102, 0, 102));
         jLabel3.setText("Planos de saúde");
         panelPlanosDeSaude.add(jLabel3);
         jLabel3.setBounds(20, 10, 180, 20);
-
-        tablePlanosDeSaude.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Title 1", "Title 2", "Title 3", "Title 4"
-            }
-        ));
-        scrollTablePlanosDeSaude.setViewportView(tablePlanosDeSaude);
-
-        panelPlanosDeSaude.add(scrollTablePlanosDeSaude);
-        scrollTablePlanosDeSaude.setBounds(20, 40, 905, 240);
 
         buttonExcluirPlanoDeSaude.setIcon(new javax.swing.ImageIcon(getClass().getResource("/br/senai/sp/jandira/imagens/delete32-2.png"))); // NOI18N
         buttonExcluirPlanoDeSaude.setToolTipText("Excluir plano de saúde selecionado");
@@ -126,8 +131,24 @@ public class HomeFrame extends javax.swing.JFrame {
         panelPlanosDeSaude.add(buttonAdicionarPlanoDeSaude);
         buttonAdicionarPlanoDeSaude.setBounds(860, 294, 70, 60);
 
+        tablePlanoDeSaude.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "Title 1", "Title 2", "Title 3", "Title 4"
+            }
+        ));
+        jScrollPane1.setViewportView(tablePlanoDeSaude);
+
+        panelPlanosDeSaude.add(jScrollPane1);
+        jScrollPane1.setBounds(22, 50, 900, 230);
+
         getContentPane().add(panelPlanosDeSaude);
-        panelPlanosDeSaude.setBounds(10, 180, 945, 370);
+        panelPlanosDeSaude.setBounds(10, 170, 945, 370);
 
         setBounds(0, 0, 983, 601);
     }// </editor-fold>//GEN-END:initComponents
@@ -146,8 +167,31 @@ public class HomeFrame extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JPanel panelPlanosDeSaude;
     private javax.swing.JScrollPane scrollTablePlanosDeSaude;
+    private javax.swing.JTable tablePlanoDeSaude;
     private javax.swing.JTable tablePlanosDeSaude;
     // End of variables declaration//GEN-END:variables
+
+    private void criarTabelaPlanosDeSaude() {
+        
+        tablePlanoDeSaude.setModel(PlanoDeSaudeDAO.getDefaultTableModel());
+        
+        // Desativar o redimensionamento da JTable
+        tablePlanoDeSaude.setAutoResizeMode(JTable.AUTO_RESIZE_OFF);
+        
+        // Definir a largula de cada coluna
+        tablePlanoDeSaude.getColumnModel().getColumn(0).setPreferredWidth(100);
+        tablePlanoDeSaude.getColumnModel().getColumn(1).setPreferredWidth(300);
+        tablePlanoDeSaude.getColumnModel().getColumn(2).setPreferredWidth(300);
+        
+        // Impedir //bloquear a movimentação das colunas
+        tablePlanoDeSaude.getTableHeader().setReorderingAllowed(false);
+        
+        // Bloquear edição das células
+        tablePlanoDeSaude.setDefaultEditor(Object.class, null);
+        
+        
+    }
 }
